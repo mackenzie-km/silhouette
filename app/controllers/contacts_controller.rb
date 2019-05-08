@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
   get "/contacts" do
     if logged_in?
-      @contacts = Contact.find_by(user_id: session[:user_id])
+      @contacts = Contact.all
       erb :'/contacts/index'
     else
       redirect to "/users/login"
