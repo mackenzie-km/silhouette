@@ -1,5 +1,4 @@
 <h1> Drill down & illuminate </h1>
-
-<% @contact.each do |attribute| %>
-<%= attribute %><br>
-<% end %>
+<%= "#{@contact.full_name}" %><br>
+<%= @contact.id %><br>
+<%= @contact.user_id %><br>

@@ -1,5 +1,5 @@
 <% if flash.has?(:message) %>
-  <div id="errors">
+  <div id="messages">
     <h3> <%= "Please try again." %> </h3>
     <% flash[:message].each do |message| %>
     <%= message %><br>
