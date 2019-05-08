@@ -10,31 +10,31 @@ class ContactsController < ApplicationController
 
   post "/contacts" do
     @contact = Contact.create(:first_name => params[:first_name], :last_initial => params[:last_initial], :user_id => session[:user_id])
-    redirect to "/contacts/#{@contact.id}"
+    redirect to "/contacts/#{@contact.slug}"
   end
 
-  get "/contacts/:id" do
+  get "/contacts/:slug" do
     @contacts = Contact.find(params[:id])
     erb :'/contacts/show'
   end
 
-  get "/contacts/:id/edit" do
+  get "/contacts/:slug/edit" do
     @contact = Contact.find(params[:id])
     erb :'/contacts/edit'
   end
 
-  patch "/contact/:id" do
+  patch "/contact/:slug" do
       @contact = Contact.find(params[:id])
       @contact.first_name = params[:first_name]
       @contact.last_initial = params[:last_initial]
       @contact.save
-      redirect to "/contacts/#{@contact.id}"
+      redirect to "/contacts/#{@contact.slug}"
   end
 
-  delete "/articles/:id" do
+  delete "/articles/:slug" do
     @contact = Contact.find(params[:id])
     @contact.delete
-    redirect to "/contacts" 
+    redirect to "/contacts"
   end
 
 end
