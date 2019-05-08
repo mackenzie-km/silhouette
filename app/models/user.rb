@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_many :contacts
   validates :username, :format => { with: /[a-zA-Z0-9]{3,}/ }
-  validates :username, presence: true
   validates :username, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validates :email, uniqueness: true

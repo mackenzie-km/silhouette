@@ -1,3 +1,12 @@
+<% if flash.has?(:message) %>
+  <div id="errors">
+    <h3> <%= "Please try again." %> </h3>
+    <% flash[:message].each do |message| %>
+    <%= message %><br>
+    <% end %>
+  </div>
+<% end %>
+
 <h1> Create a new account </h1>
 
 <form action="/users" method="POST">

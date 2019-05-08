@@ -9,10 +9,11 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       login_now
-      binding.pry
       redirect to "/contacts/new"
     else
-      redirect to "/users/new"
+      errors = @user.errors.messages
+      flash[:message] = errors.collect {|key, value| "#{key.capitalize}: #{value.first}"}
+      erb :'/users/new'
     end
   end
 
