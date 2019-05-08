@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
   get "/contacts" do
     if logged_in?
-      @contacts = Contact.find_by(user_id: @session[:id])
+      @contacts = Contact.find_by(user_id: session[:id])
       erb :'/contacts/index'
     else
       redirect to "/users/login"
@@ -18,17 +18,17 @@ class ContactsController < ApplicationController
   end
 
   post "/contacts" do
-    @contact = Contact.create(:first_name => params[:first_name], :last_initial => params[:last_initial], :user_id => @session[:id])
-    if @contact.save && (@contact.user_id == @session[:id])
-      redirect to "/contacts/#{@contact.slug}"
+    @contact = Contact.new(:first_name => params[:first_name], :last_initial => params[:last_initial], :user_id => session[:id])
+    if @contact.save
+      erb :"/contacts/show"
     else
-      redirect to "/contacts/new"
+      erb :'/contacts/new'
     end
   end
 
   get "/contacts/:slug" do
     @contact = Contact.find_by_slug(params[:slug])
-    if logged_in? && (@session[:id] == @contact.id)
+    if logged_in? && (session[:id] == @contact.id)
       erb :'/contacts/show'
     else
       redirect to "/users/login"
@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
 
   get "/contacts/:slug/edit" do
     @contact = Contact.find_by_slug(params[:slug])
-    if logged_in? && (@session[:id] == @contact.id)
+    if logged_in? && (session[:id] == @contact.id)
       erb :'/contacts/edit'
     else
       redirect to "/users/login"
@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
 
   patch "/contact/:slug" do
       @contact = Contact.find_by_slug(params[:slug])
-      if logged_in? && (@session[:id] == @contact.id)
+      if logged_in? && (session[:id] == @contact.id)
         @contact.first_name = params[:first_name]
         @contact.last_initial = params[:last_initial]
         @contact.save
@@ -58,7 +58,7 @@ class ContactsController < ApplicationController
 
   delete "/articles/:slug" do
     @contact = Contact.find_by_slug(params[:slug])
-    if logged_in? && (@session[:id] == @contact.id)
+    if logged_in? && (session[:id] == @contact.id)
       @contact.delete
       redirect to "/contacts"
     else

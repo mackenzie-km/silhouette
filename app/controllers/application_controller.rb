@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :views, 'app/views'
     enable :sessions
-    #use Rack::Flash
+    use Rack::Flash
     set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
   end
 
@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      !!@session[:id]
+      !!session[:id]
     end
   end
 end
