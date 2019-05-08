@@ -8,8 +8,9 @@ class UsersController < ApplicationController
     @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
     if @user.valid?
       @user.save
-      login_now
-      redirect to "/contacts/new"
+      session[:id] = @user.id
+      @session = session
+      erb :'contacts/new'
     else
       errors = @user.errors.messages
       flash[:message] = errors.collect {|key, value| "#{key.capitalize}: #{value.first}"}
@@ -22,12 +23,24 @@ class UsersController < ApplicationController
   end
 
   post "/users/login" do
-    @user = User.find(params[:username])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect to "/contacts"
+    @user = User.find_by(username: params[:username])
+    if !!@user && !!@user.authenticate(params[:password])
+      session[:id] = @user.id
+      @session = session
+      if @user.contacts.count == 0
+        #flash[:message] = "User account created. Please fill out your first contact."
+        erb :'/contacts/new'
+      else
+        erb :'/contacts'
+      end
     else
-      redirect to "/users/login"
+      #flash[:message] = "We did not find any users with that username/password combination."
+      erb :'/users/login'
     end
+  end
+
+  get "/users/logout" do
+    session.clear
+    redirect to "/"
   end
 end
