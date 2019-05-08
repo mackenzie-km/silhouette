@@ -13,6 +13,9 @@ M - Models (??? Do I need more than two? Can also do events)
   User features: Each user has a username, email, and an id.
   Contact features: Each contact has a First name, last initial, and an id.
   After that, part of the functionality of this app - want metaprogramming
+
+
+  *****THE DREAM CODE*****
    that allows you to add in new features on the fly [Asuka][:hometown] Osaka
   Also want functionality to query all by these new features... is that possible?
 

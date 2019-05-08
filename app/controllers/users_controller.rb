@@ -1,11 +1,19 @@
 class UsersController < ApplicationController
+
   get "/users/new" do
     erb :'/users/new'
   end
 
   post "/users" do
-    @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-    redirect to "/contacts/new"
+    @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+    if @user.valid?
+      @user.save
+      login_now
+      binding.pry
+      redirect to "/contacts/new"
+    else
+      redirect to "/users/new"
+    end
   end
 
   get "/users/login" do
