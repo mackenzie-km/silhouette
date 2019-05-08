@@ -1,0 +1,8 @@
+<h1> Edit an old contact </h1>
+
+<form action="<%= "/contacts/#{@contact.id}/" %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" id="first_name" name="first_name">
+  <input type="text" name="last_initial" id="last_initial">
+  <input type="submit" id="submit" name="submit" value="Create Contact">
+</form>
