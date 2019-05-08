@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       session[:id] = @user.id
-      @session = session
       erb :'contacts/new'
     else
       errors = @user.errors.messages
@@ -26,15 +25,14 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if !!@user && !!@user.authenticate(params[:password])
       session[:id] = @user.id
-      @session = session
       if @user.contacts.count == 0
-        #flash[:message] = "User account created. Please fill out your first contact."
+        flash[:message] = "User account created. Please fill out your first contact."
         erb :'/contacts/new'
       else
         erb :'/contacts'
       end
     else
-      #flash[:message] = "We did not find any users with that username/password combination."
+      flash[:message] = "We did not find any users with that username/password combination."
       erb :'/users/login'
     end
   end

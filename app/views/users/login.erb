@@ -1,4 +1,9 @@
 
+<% if flash.has?(:message) %>
+  <div id="messages">
+    <%= flash[:message] %>
+  </div>
+<% end %>
 
 <h1> Login to your account </h1>
 
