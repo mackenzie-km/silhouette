@@ -1,7 +1,8 @@
-/*////////////// Fonts //////////////*/
+/*////////////// Header Layout //////////////*/
 
 header {
   height: 5.1 em;
+  text-align: center;
 }
 
 header img {
@@ -9,9 +10,14 @@ header img {
   vertical-align: middle;
 }
 
-body {
-  background-color: grey;
+nav {
+  width:inherit;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+/*////////////// Fonts //////////////*/
 
 h1 {
   font-family: 'Cantata One', serif;
@@ -25,15 +31,63 @@ h2 {
   font-family: 'Cantata One', serif;
 }
 
+h2, h3, h4, h5 {
+  text-align: center;
+}
+
 body, p, a {
   font-family: 'Raleway', sans-serif;
 }
 
+/*////////////// Links //////////////*/
+
+
 a, a:visited, a:hover {
   color: black;
-  padding: 2px;
+  padding: 7px 7px;
+  text-decoration: none;
 }
 
 a:hover {
   background-color: #FFFACD;
+}
+
+.nav {
+  display: inline-block;
+  background-color: #ffffe6;
+  font-size: 1em;
+  letter-spacing: 1.5px;
+  padding: 7px 7px;
+  margin: 1px;
+  width: 10em;
+  border: 1px solid black;
+}
+
+.nav:hover {
+  background-color: #FFFACD;
+}
+
+/*////////////// Body Divs //////////////*/
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: grey;
+}
+
+.container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width:inherit;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  height: 100%;
 }
