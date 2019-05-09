@@ -18,6 +18,7 @@ nav {
   margin-bottom: 10px;
 }
 
+
 /*////////////// Fonts //////////////*/
 
 h1 {
@@ -50,12 +51,12 @@ a, a:visited, a:hover {
 }
 
 a:hover {
-  background-color: #FFFACD;
+  background: rgba(255, 255, 0, 0.5);
 }
 
 .nav {
   display: inline-block;
-  background: rgba(255, 255, 230, 0.7);
+  background: rgba(255, 255, 51, 0.2);
   font-size: 1em;
   letter-spacing: 1.5px;
   padding: 7px 7px;
@@ -65,7 +66,33 @@ a:hover {
 }
 
 .nav:hover {
-  background: rgba(255, 250, 205, 0.7);
+  background: rgba(255, 255, 0, 0.5);
+}
+
+.nav a:hover {
+  background: none;
+}
+
+/*////////////// Forms //////////////*/
+
+.fbutton {
+  display: inline-block;
+  background: rgba(255, 255, 51, 0.2);
+  font-size: .75em;
+  letter-spacing: 1.25px;
+  padding: 5px 5px;
+  margin: 1px;
+  min-width: 7.5em;
+  border: 1px solid black;
+}
+
+.fbutton:hover {
+  background: rgba(255, 255, 0, 0.5);
+}
+
+input[type=text] {
+  border: 1px solid black;
+  height: 1.75em;
 }
 
 /*////////////// Body Divs //////////////*/
@@ -89,7 +116,7 @@ body {
 
 .wrapper {
   width:inherit;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
   padding: 10px;
   height: 100%;

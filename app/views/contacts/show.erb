@@ -1,4 +1,6 @@
 <h2> Drill down & illuminate </h2>
-<%= "Full name: #{@contact.full_name}" %><br>
-<%= "Contact id: #{@contact.id}" %><br>
-<%= "User id: #{@contact.user_id}" %><br>
+<% if @contact %>
+  <%= "Full name: #{@contact.full_name}" %><br>
+  <%= "Contact id: #{@contact.id}" %><br>
+  <%= "User id: #{@contact.user_id}" %><br>
+<% end %>

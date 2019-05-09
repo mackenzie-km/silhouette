@@ -1,7 +1,14 @@
-
 <% if flash.has?(:message) %>
   <div id="messages">
-    <%= flash[:message] %>
+    <h3> <%= "Please try again." %> </h3>
+    <% if flash[:message].count > 1 %>
+      <% flash[:message].each do |message| %>
+      <%= message %><br>
+      <% end %>
+    <% else %>
+      <%= flash[:message] %>
+    <% end %>
+    <%= flash[:message] = nil %>
   </div>
 <% end %>
 
@@ -12,5 +19,5 @@
   <input type="text" id="first_name" name="first_name"><br><br>
   <label>Last Initial:</label>
   <input type="text" name="last_initial" id="last_initial"><br><br>
-  <input type="submit" id="submit" name="submit" value="Create Contact">
+  <input type="submit" class="fbutton" id="submit" name="submit" value="Create Contact">
 </form>
