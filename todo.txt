@@ -1,0 +1,11 @@
+MAY 9 2019
+1. Fix sessions problem
+2. Finish formatting double div layout
+3. Add a footer
+Tomorrow? =>
+  Finish formatting user pages, message divs
+  Add contact validation & add more characteristics (such as notes)
+Bucket list? =>
+  Make session secret more secure
+  Add images to user profiles from internet
+  Quick inject feature
