@@ -1,5 +1,5 @@
 <h1> Shine the searchlight </h1>
 
 <% @contacts.each do |contact| %>
- <a href="<%= "/contacts/#{contact.slug}" %>"> <%= contact.full_name %> </a><br>
+ <a href="<%= "/contacts/#{contact.id}" %>"> <%= contact.full_name %> </a><br>
 <% end %>
