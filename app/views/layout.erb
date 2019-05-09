@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Cantata+One" rel="stylesheet">
+    <meta charset="utf-8">
     <title> silhouette </title>
+    <link href="<%= url('/css/style.css') %>" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Cantata+One|Raleway" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <header><h1> silhouette </h1></header>
+      <header><h1> silhouette </h1><img src="<%= url('/images/silhouette1.png') %>"></header>
 
-      <nav> <a href="/users/login">Login</a> || <a href="/users/new">Signup</a> || <a href="/contacts/new"> Document </a> || <a href="/contacts">Illuminate</a> || <a href="/users/logout">Logout</a> </nav>
+      <nav> <a href="/">Home</a> || <a href="/users/login">Login</a> || <a href="/users/new">Signup</a> || <a href="/contacts/new"> Document</a> || <a href="/contacts">Illuminate</a> || <a href="/users/logout">Logout</a> </nav>
       <%= yield %>
     </div>
   </body>

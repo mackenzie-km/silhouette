@@ -1,0 +1,39 @@
+/*////////////// Fonts //////////////*/
+
+header {
+  height: 5.1 em;
+}
+
+header img {
+  display: inline;
+  vertical-align: middle;
+}
+
+body {
+  background-color: grey;
+}
+
+h1 {
+  font-family: 'Cantata One', serif;
+  text-shadow: 0 0 0.2em white, 0 0 0.2em white;
+  font-size: 5em;
+  display: inline;
+  vertical-align: middle;
+}
+
+h2 {
+  font-family: 'Cantata One', serif;
+}
+
+body, p, a {
+  font-family: 'Raleway', sans-serif;
+}
+
+a, a:visited, a:hover {
+  color: black;
+  padding: 2px;
+}
+
+a:hover {
+  background-color: #FFFACD;
+}
