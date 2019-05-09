@@ -8,12 +8,10 @@
   </head>
   <body>
     <div class="container">
-      <header><h1> silhouette </h1><img src="<%= url('/images/silhouette1.png') %>"></header>
+      <header><a href="/"><h1> silhouette </h1><img src="<%= url('/images/silhouette1.png') %>"></a></header>
 
-      <nav> <button class="nav"><a href="/">Home</a></button>  <button class="nav"><a href="/users/login">Login</a></button>  <button class="nav"><a href="/users/new">Signup</a></button>  <button class="nav"><a href="/contacts/new">Update</a></button>  <button class="nav"><a href="/contacts">Illuminate</a></button>  <button class="nav"><a href="/users/logout">Logout</a></nav></button>
-      <div class="wrapper">
+      <nav> <button class="nav"><a href="/users/login">Login</a></button>  <button class="nav"><a href="/users/new">Signup</a></button> <button class="nav"><a href="/contacts/new">New Contact</a></button> <button class="nav"><a href="/">Coming Soon</a></button> <button class="nav"><a href="/contacts">Illuminate</a></button> <button class="nav"><a href="/users/logout">Logout</a></nav></button>
         <%= yield %>
-      </div>
     </div>
   </body>
   </html>

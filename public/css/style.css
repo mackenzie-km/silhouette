@@ -43,15 +43,10 @@ body, p, a {
 
 /*////////////// Links //////////////*/
 
-
 a, a:visited, a:hover {
   color: black;
-  padding: 7px 7px;
+  padding: 3px;
   text-decoration: none;
-}
-
-a:hover {
-  background: rgba(255, 255, 0, 0.5);
 }
 
 .nav {
@@ -69,8 +64,8 @@ a:hover {
   background: rgba(255, 255, 0, 0.5);
 }
 
-.nav a:hover {
-  background: none;
+.glow:hover {
+  background: rgba(255, 255, 0, 0.5);
 }
 
 /*////////////// Forms //////////////*/
@@ -109,15 +104,33 @@ body {
   background-attachment: fixed;
 }
 
+form {
+    display: inline-block;
+}
+
 .container {
   max-width: 70%;
   margin: 0 auto;
+  height: 100%;
 }
 
-.wrapper {
-  width:inherit;
+.left, .right {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
   padding: 10px;
-  height: 100%;
+  width: 49.2%;
+  max-width: 49.2%;
+  min-height: 300px;
+  margin-bottom: -300px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.left {
+  margin: 0 2px 0 4px;
+}
+
+.right {
+  margin: 0 3px 0 1px;
 }

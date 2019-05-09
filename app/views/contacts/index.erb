@@ -1,7 +1,13 @@
-<h2> Shine the searchlight </h2>
-
-<% if @contacts %>
-  <% @contacts.each do |contact| %>
-   <a href="<%= "/contacts/#{contact.id}" %>"> <%= contact.full_name %> </a><br>
+<div class="left">
+  <h2> Shine the searchlight </h2>
+  <% if @contacts %>
+    <% @contacts.each do |contact| %>
+     <p> <a class="glow" href="<%= "/contacts/#{contact.id}" %>"> <%= contact.full_name %> </a></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<div class="right">
+  <h2> Testing 123 </h2>
+  Can I put it all on one page?
+</div>

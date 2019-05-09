@@ -28,7 +28,6 @@ class ContactsController < ApplicationController
 
   get "/contacts/:id" do
     @contact = Contact.find(params[:id])
-    binding.pry
     if logged_in? && (session[:user_id] == @contact.user_id)
       erb :'/contacts/show'
     else

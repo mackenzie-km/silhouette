@@ -1,22 +1,26 @@
-<% if flash.has?(:message) %>
-  <div id="messages">
-    <% if flash[:message].kind_of?(Array) %>
-      <% flash[:message].each do |message| %>
-      <%= message %><br>
+<div class="left">
+  <h2> Create a new contact </h2>
+
+  <form action="/contacts" method="POST">
+    <label>First Name:</label>
+    <input type="text" id="first_name" name="first_name"><br><br>
+    <label>Last Initial:</label>
+    <input type="text" name="last_initial" id="last_initial"><br><br>
+    <input type="submit" class="fbutton" id="submit" name="submit" value="Create Contact">
+  </form>
+</div>
+
+<div class="right">
+  <% if flash.has?(:message) %>
+    <div id="messages">
+      <% if flash[:message].kind_of?(Array) %>
+        <% flash[:message].each do |message| %>
+        <%= message %><br>
+        <% end %>
+      <% else %>
+        <%= flash[:message] %>
       <% end %>
-    <% else %>
-      <%= flash[:message] %>
-    <% end %>
-    <%= flash[:message] = nil %>
-  </div>
-<% end %>
-
-<h2> Create a new contact </h2>
-
-<form action="/contacts" method="POST">
-  <label>First Name:</label>
-  <input type="text" id="first_name" name="first_name"><br><br>
-  <label>Last Initial:</label>
-  <input type="text" name="last_initial" id="last_initial"><br><br>
-  <input type="submit" class="fbutton" id="submit" name="submit" value="Create Contact">
-</form>
+      <%= flash[:message] = nil %>
+    </div>
+  <% end %>
+</div>
