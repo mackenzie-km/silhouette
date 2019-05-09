@@ -28,7 +28,8 @@ class ContactsController < ApplicationController
 
   get "/contacts/:id" do
     @contact = Contact.find(params[:id])
-    if logged_in? && (session[:user_id] == @contact.id)
+    binding.pry
+    if logged_in? && (session[:user_id] == @contact.user_id)
       erb :'/contacts/show'
     else
       redirect to "/users/login"
@@ -37,7 +38,7 @@ class ContactsController < ApplicationController
 
   get "/contacts/:id/edit" do
     @contact = Contact.find(params[:id])
-    if logged_in? && (session[:user_id] == @contact.id)
+    if logged_in? && (session[:user_id] == @contact.user_id)
       erb :'/contacts/edit'
     else
       redirect to "/users/login"
@@ -46,7 +47,7 @@ class ContactsController < ApplicationController
 
   patch "/contact/:id" do
       @contact = Contact.find(params[:id])
-      if logged_in? && (session[:user_id] == @contact.id)
+      if logged_in? && (session[:user_id] == @contact.user_id)
         @contact.first_name = params[:first_name]
         @contact.last_initial = params[:last_initial]
         @contact.save
@@ -58,7 +59,7 @@ class ContactsController < ApplicationController
 
   delete "/articles/:id" do
     @contact = Contact.find(params[:id])
-    if logged_in? && (session[:user_id] == @contact.id)
+    if logged_in? && (session[:user_id] == @contact.user_id)
       @contact.delete
       redirect to "/contacts"
     else
