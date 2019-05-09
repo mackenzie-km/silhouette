@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-      redirect to '/contacts'
+      flash[:message] = "Please make your first contact profile."
+      erb :'/contacts/new'
     else
       errors = @user.errors.messages
       flash[:message] = errors.collect {|key, value| "#{key.capitalize}: #{value.first}"}
@@ -25,12 +26,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if !!@user && !!@user.authenticate(params[:password])
       session[:user_id] = @user.id
-      binding.pry
-      if @user.contacts.count == 0
-        erb :'/contacts/new'
-      else
-        erb :'/contacts/index'
-      end
+      erb :'/contacts/index'
     else
       flash[:message] = "We did not find any users with that username/password combination."
       erb :'/users/login'

@@ -20,14 +20,14 @@ class ContactsController < ApplicationController
   post "/contacts" do
     @contact = Contact.new(:first_name => params[:first_name], :last_initial => params[:last_initial], :user_id => session[:user_id])
     if @contact.save
-      erb :"/contacts/show"
+      redirect to "/contacts/#{@contact.id}"
     else
       erb :'/contacts/new'
     end
   end
 
-  get "/contacts/:slug" do
-    @contact = Contact.find_by_slug(params[:slug])
+  get "/contacts/:id" do
+    @contact = Contact.find(params[:id])
     if logged_in? && (session[:user_id] == @contact.id)
       erb :'/contacts/show'
     else
@@ -35,8 +35,8 @@ class ContactsController < ApplicationController
     end
   end
 
-  get "/contacts/:slug/edit" do
-    @contact = Contact.find_by_slug(params[:slug])
+  get "/contacts/:id/edit" do
+    @contact = Contact.find(params[:id])
     if logged_in? && (session[:user_id] == @contact.id)
       erb :'/contacts/edit'
     else
@@ -44,20 +44,20 @@ class ContactsController < ApplicationController
     end
   end
 
-  patch "/contact/:slug" do
-      @contact = Contact.find_by_slug(params[:slug])
+  patch "/contact/:id" do
+      @contact = Contact.find(params[:id])
       if logged_in? && (session[:user_id] == @contact.id)
         @contact.first_name = params[:first_name]
         @contact.last_initial = params[:last_initial]
         @contact.save
-        redirect to "/contacts/#{@contact.slug}"
+        redirect to "/contacts/#{@contact.id}"
       else
         redirect to "/users/login"
       end
   end
 
-  delete "/articles/:slug" do
-    @contact = Contact.find_by_slug(params[:slug])
+  delete "/articles/:id" do
+    @contact = Contact.find(params[:id])
     if logged_in? && (session[:user_id] == @contact.id)
       @contact.delete
       redirect to "/contacts"
