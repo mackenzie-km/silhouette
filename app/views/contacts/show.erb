@@ -1,6 +1,12 @@
-<h2> Drill down & illuminate </h2>
-<% if @contact %>
-  <%= "Full name: #{@contact.full_name}" %><br>
-  <%= "Contact id: #{@contact.id}" %><br>
-  <%= "User id: #{@contact.user_id}" %><br>
-<% end %>
+<div class="left">
+  Can I put it all on one page?
+</div>
+
+<div class="right">
+  <h2> Drill down </h2>
+  <% if @contact %>
+    <%= "Full name: #{@contact.full_name}" %><br>
+    <%= "Contact id: #{@contact.id}" %><br>
+    <%= "User id: #{@contact.user_id}" %><br>
+  <% end %>
+</div>

@@ -1,25 +1,35 @@
 
-<% if flash.has?(:message) %>
-  <div id="messages">
-    <% if flash[:message].kind_of?(Array) %>
-      <% flash[:message].each do |message| %>
-      <%= message %><br>
+
+<div class="left">
+  <h2> Create a new account </h1>
+
+  <form action="/users" method="POST">
+    <label>Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label>Email:</label>
+    <input type="text" name="email" id="email"><br><br>
+    <label>Password:</label>
+    <input type="text" name="password" id="password"><br><br>
+    <input class="fbutton" type="submit" id="submit" name="submit" value="Create Account">
+  </form>
+</div>
+
+<div class="right">
+  <h2>Please note...</h2>
+  <u>Usernames</u> should be more than 3 characters long.<br><br>
+  <u>Emails</u> must be unique & in a standard email format.<br><br>
+  <u>Passwords</u> must be between 6-20 characters long.<br><br>
+
+  <% if flash.has?(:message) %>
+    <div id="messages">
+      <% if flash[:message].kind_of?(Array) %>
+        <% flash[:message].each do |message| %>
+        <%= message %><br>
+        <% end %>
+      <% else %>
+        <%= flash[:message] %>
       <% end %>
-    <% else %>
-      <%= flash[:message] %>
-    <% end %>
-    <%= flash[:message] = nil %>
-  </div>
-<% end %>
-
-<h2> Create a new account </h1>
-
-<form action="/users" method="POST">
-  <label>Username:</label>
-  <input type="text" id="username" name="username"><br><br>
-  <label>Email:</label>
-  <input type="text" name="email" id="email"><br><br>
-  <label>Password:</label>
-  <input type="text" name="password" id="password"><br><br>
-  <input class="fbutton" type="submit" id="submit" name="submit" value="Create Account">
-</form>
+      <%= flash[:message] = nil %>
+    </div>
+  <% end %>
+</div>
