@@ -1,7 +1,6 @@
 <% if flash.has?(:message) %>
   <div id="messages">
-    <h3> <%= "Please try again." %> </h3>
-    <% if flash[:message].count > 1 %>
+    <% if flash[:message].kind_of?(Array) %>
       <% flash[:message].each do |message| %>
       <%= message %><br>
       <% end %>
