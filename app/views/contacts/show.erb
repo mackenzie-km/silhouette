@@ -5,15 +5,16 @@
     <% @contact.facts.each do |fact| %>
       <p><%= "#{fact.topic.gsub("_", " ").capitalize}: #{fact.information.capitalize}" %></p>
     <% end %>
+    <a href="<%="/contacts/#{@contact.id}/edit" %>"> <button class="bigbutton">Edit Contact</button> </a>
   <% end %>
 </div>
 
 <div class="right">
   <h2> Identify </h2>
-    <% if @contact.photo %>
-      <p><img class="profile" src="<%=@contact.photo%>"></p>
+    <% if @contact.photo != nil && @contact.photo != "" %>
+        <img class="profile" src="<%=@contact.photo%>">
     <% else %>
-      <p><img class="profile" src="<%= url('/images/default.png') %>"></p>
+        <img class="profile" src="<%= url('/images/default.png') %>">
     <% end %>
-  Visit <a class="glow" href="/contacts">"Illuminate"</a> to view more contacts
+  <p>Visit <a class="glow" href="/contacts">"Illuminate"</a> to view more contacts</p>
 </div>

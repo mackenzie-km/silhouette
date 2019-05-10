@@ -1,13 +1,17 @@
-<div class="left">
+<div class="one">
   <h2> Shine the searchlight </h2>
   <% if @contacts %>
     <% @contacts.each do |contact| %>
-     <p> <a class="glow" href="<%= "/contacts/#{contact.id}" %>"> <%= contact.full_name %> </a></p>
+     <div class="tiles">
+       <%= "#{contact.full_name}" %> <br><br>
+       <% if contact.photo != nil && contact.photo != "" %>
+           <img class="tiny" src="<%=contact.photo%>"><br>
+       <% else %>
+           <img class="tiny" src="<%= url('/images/default.png') %>"><br>
+       <% end %>
+       <br>
+       <a href="<%= "/contacts/#{contact.id}" %>"> <button class="bigbutton">View</button> </a> <a href="<%= "/contacts/#{contact.id}/edit" %>"> <button class="bigbutton">Edit</button> </a>
+     </div>
     <% end %>
   <% end %>
-</div>
-
-<div class="right">
-  <h2> Testing 123 </h2>
-  Can I put it all on one page?
 </div>
