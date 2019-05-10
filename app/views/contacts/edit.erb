@@ -1,30 +1,46 @@
 <div class="left">
-  <h2> Edit a contact </h2>
+  <h2> Edit Contact </h2>
 
-  <form id="edit" action="<%= "/contacts/#{@contact.id}/" %>" method="POST">
+  <form id="edit" action="<%="/contacts/#{@contact.id}"%>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
     <label>First Name:</label>
-    <input type="text" id="first_name" name="first_name" required><br><br>
+    <input type="text" id="first_name" name="first_name"><br><br>
     <label>Last Initial:</label>
-    <input type="text" name="last_initial" id="last_initial" required><br><br>
+    <input type="text" name="last_initial" id="last_initial"><br><br>
     <label>Photo Url (optional):</label>
     <input type="text" name="photo" id="photo"><br><br>
     <label>Facts:</label>
-    <textarea name="facts" id="facts" form="edit" placeholder="please use this format: [topic]information, [topic]information, [topic]information"></textarea><br><br>
+    <textarea name="facts" id="facts" form="edit" placeholder="Please use this format: [topic]information, [topic]information, [topic]information"></textarea><br><br>
     <input type="submit" class="fbutton" id="submit" name="submit" value="Edit Contact">
-  </form>
+  </form><br>
+
   <form id="delete" action="<%= "/contacts/#{@contact.id}" %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" class="fbutton" id="submit" name="submit" value="Delete Contact">
   </form>
+
 </div>
 
 <div class="right">
+  <% if flash.has?(:message) %>
+    <div id="messages">
+      <% if flash[:message].kind_of?(Array) %>
+        <% flash[:message].each do |message| %>
+        <%= message %><br>
+        <% end %>
+      <% else %>
+        <%= flash[:message] %>
+      <% end %>
+      <%= flash[:message] = nil %>
+    </div>
+  <% end %>
+
   <h2>Current Info</h2>
-    <% if @contact %>
-        <% if @contact.photo %>
-          <p><img class="profile tiny" src="<%=@contact.photo%>"></p>
+    <% if @contact != nil %>
+        <% if @contact.photo != nil && @contact.photo != "" %>
+            <img class="tiny" src="<%=@contact.photo%>">
         <% else %>
-          <p><img class="profile tiny" src="<%= url('/images/default.png') %>"></p>
+            <img class="tiny" src="<%= url('/images/default.png') %>">
         <% end %>
       <p><%= "Full name: #{@contact.full_name}" %></p>
       <% @contact.facts.each do |fact| %>

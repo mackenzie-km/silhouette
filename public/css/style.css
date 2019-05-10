@@ -77,6 +77,21 @@ a, a:visited, a:hover {
 
 /*////////////// Forms //////////////*/
 
+.bigbutton {
+  display: inline-block;
+  background: rgba(255, 255, 51, 0.2);
+  font-size: .75em;
+  letter-spacing: 1.25px;
+  padding: 5px 5px;
+  margin: 1px;
+  min-width: 6em;
+  border: 1px solid black;
+}
+
+.bigbutton:hover {
+  background: rgba(255, 255, 0, 0.5);
+}
+
 .fbutton {
   display: inline-block;
   background: rgba(255, 255, 51, 0.2);
@@ -137,6 +152,19 @@ form {
   height: 100%;
 }
 
+.one {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid black;
+  margin: 0 2px 0 4px;
+  padding: 10px;
+  min-width: 99%;
+  max-width: 99%;
+  min-height: 50%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
 .left, .right {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
@@ -149,6 +177,16 @@ form {
   text-align: center;
 }
 
+.tiles {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 10px;
+  min-width: 190px;
+  max-width: 190px;
+  background: rgba(255, 255, 51, 0.1);
+}
+
 .left {
   margin: 0 2px 0 4px;
 }
@@ -157,16 +195,27 @@ form {
   margin: 0 3px 0 1px;
 }
 
+.pad {
+  padding: 0 20px 0 20px;
+}
+
 /*////////////// Images //////////////*/
 
 .profile {
+  display: inline-block;
   border: 1px solid black;
-  max-height: 33%;
-  max-width: 33%;
+  height: 200px;
+  width: auto;
 }
 
-.profile .tiny {
+.tiny {
+  display: inline-block;
   border: 1px solid black;
-  max-height: 20%;
-  max-width: 20%;
+  height: 100px;
+  width: auto;
+}
+
+.ring {
+  border-width: 15px;
+  border-color: rgba(255, 255, 51, 0.2);
 }
