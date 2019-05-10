@@ -1,11 +1,16 @@
 <div class="left">
   <h2> Edit a contact </h2>
 
-  <form action="<%= "/contacts/#{@contact.id}/" %>" method="POST">
+  <form id="edit" action="<%= "/contacts/#{@contact.id}/" %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <input type="text" id="first_name" name="first_name">
-    <input type="text" name="last_initial" id="last_initial">
-    <input type="submit" class="fbutton" id="submit" name="submit" value="Create Contact">
+    <input type="text" id="first_name" name="first_name"><br><br>
+    <input type="text" name="last_initial" id="last_initial"><br><br>
+    <label>Facts:</label>
+    <textarea name="facts" id="facts" form="edit" placeholder="please use this format: [topic]information, [topic]information, [topic]information"></textarea><br><br>
+    <input type="submit" class="fbutton" id="submit" name="submit" value="Edit Contact">
+  </form>
+  <form id="delete" action="<%= "/contacts/#{@contact.id}" %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
   </form>
 </div>
 

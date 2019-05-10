@@ -93,6 +93,13 @@ input[type=text] {
   height: 1.75em;
 }
 
+textarea {
+  border: 1px solid black;
+  height: 5em;
+  width: 25em;
+  vertical-align: top; 
+}
+
 /*////////////// Body Divs //////////////*/
 
 *, *:before, *:after {
