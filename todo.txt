@@ -1,8 +1,7 @@
-MAY 9 2019
-3. Add a footer
-Tomorrow? =>
+MAY 10 2019 Goals
+  Add a footer
   Finish formatting user pages, message divs & finalize layout
-  Add contact validation & add more characteristics (such as notes)
+  Add contact validation & add more characteristics (such as notes) & record adding this in
 Bucket list? =>
   Make session secret more secure
   Add images to user profiles from internet
