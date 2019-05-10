@@ -3,6 +3,7 @@ class CreateContacts < ActiveRecord::Migration[5.2]
     create_table :contacts do |t|
       t.string :first_name
       t.string :last_initial
+      t.string :photo
       t.integer :user_id
     end
   end

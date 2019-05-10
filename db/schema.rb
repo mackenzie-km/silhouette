@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_05_10_172256) do
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_initial"
+    t.string "photo"
     t.integer "user_id"
   end
 

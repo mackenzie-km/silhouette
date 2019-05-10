@@ -1,8 +1,4 @@
 <div class="left">
-  Can I put it all on one page?
-</div>
-
-<div class="right">
   <h2> Dig Deep </h2>
   <% if @contact %>
     <p><%= "Full name: #{@contact.full_name}" %></p>
@@ -10,4 +6,14 @@
       <p><%= "#{fact.topic.gsub("_", " ").capitalize}: #{fact.information.capitalize}" %></p>
     <% end %>
   <% end %>
+</div>
+
+<div class="right">
+  <h2> Identify </h2>
+    <% if @contact.photo %>
+      <p><img class="profile" src="<%=@contact.photo%>"></p>
+    <% else %>
+      <p><img class="profile" src="<%= url('/images/default.png') %>"></p>
+    <% end %>
+  Visit <a class="glow" href="/contacts">"Illuminate"</a> to view more contacts
 </div>
