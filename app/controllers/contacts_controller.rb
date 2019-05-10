@@ -18,8 +18,17 @@ class ContactsController < ApplicationController
   end
 
   post "/contacts" do
-    @contact = Contact.new(:first_name => params[:first_name], :last_initial => params[:last_initial], :user_id => session[:user_id])
+    @contact = Contact.new(:first_name => params[:first_name].capitalize, :last_initial => params[:last_initial].capitalize, :user_id => session[:user_id])
     if @contact.save
+      details = Fact.normalize(params[:facts])
+      details.each do |fact|
+        fact_object = Fact.new(:topic => fact[0], :information => fact[1], :contact_id => @contact.id)
+        if fact_object.save
+          @contact.facts << fact_object
+        else
+          flash[:message] = "Invalid format. Please try again."
+        end
+      end
       redirect to "/contacts/#{@contact.id}"
     else
       erb :'/contacts/new'

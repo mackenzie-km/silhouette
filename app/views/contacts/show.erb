@@ -3,10 +3,11 @@
 </div>
 
 <div class="right">
-  <h2> Drill down </h2>
+  <h2> Dig Deep </h2>
   <% if @contact %>
-    <%= "Full name: #{@contact.full_name}" %><br>
-    <%= "Contact id: #{@contact.id}" %><br>
-    <%= "User id: #{@contact.user_id}" %><br>
+    <p><%= "Full name: #{@contact.full_name}" %></p>
+    <% @contact.facts.each do |fact| %>
+      <p><%= "#{fact.topic.gsub("_", " ").capitalize}: #{fact.information.capitalize}" %></p>
+    <% end %>
   <% end %>
 </div>

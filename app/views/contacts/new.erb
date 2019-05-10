@@ -1,11 +1,13 @@
 <div class="left">
   <h2> Create a new contact </h2>
 
-  <form action="/contacts" method="POST">
+  <form id="new" action="/contacts" method="POST">
     <label>First Name:</label>
     <input type="text" id="first_name" name="first_name"><br><br>
     <label>Last Initial:</label>
     <input type="text" name="last_initial" id="last_initial"><br><br>
+    <label>Facts:</label>
+    <textarea name="facts" id="facts" form="new" placeholder="please use this format: [topic]information, [topic]information, [topic]information"></textarea><br><br>
     <input type="submit" class="fbutton" id="submit" name="submit" value="Create Contact">
   </form>
 </div>
@@ -25,7 +27,9 @@
   <% end %>
 
   <h2> Please note </h2>
-    <p> Silhouette will not let you create duplicate contacts </p>
+    <p> Facts must be entered in the following format:<br> <u>[topic]information, [topic]information, [topic]information</u>
+    <br>Example: [hometown]osaka, [favorite_food]pizza, and so on.</p>
+
     <p> Please choose a unique name/last initial. In the rare case that two individuals share both,
       feel free to use middle initial too (Example: EM - so Madeline EM).</p>
 </div>
