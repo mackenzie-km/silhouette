@@ -101,6 +101,11 @@ input[type=text] {
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0px;
+}
+
 body {
   background:url('../images/light_entering.jpg');
   background-repeat: no-repeat;
@@ -111,9 +116,13 @@ form {
     display: inline-block;
 }
 
-.container {
+.wrapper {
   max-width: 70%;
   margin: 0 auto;
+  height: 100%;
+}
+
+.container {
   height: 100%;
 }
 
@@ -121,10 +130,9 @@ form {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
   padding: 10px;
-  width: 49.2%;
+  min-width: 49.2%;
   max-width: 49.2%;
-  min-height: 300px;
-  margin-bottom: -300px;
+  min-height: 40%;
   display: inline-block;
   vertical-align: top;
   text-align: center;
