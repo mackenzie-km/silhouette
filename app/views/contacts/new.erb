@@ -3,9 +3,11 @@
 
   <form id="new" action="/contacts" method="POST">
     <label>First Name:</label>
-    <input type="text" id="first_name" name="first_name"><br><br>
+    <input type="text" id="first_name" name="first_name" required><br><br>
     <label>Last Initial:</label>
-    <input type="text" name="last_initial" id="last_initial"><br><br>
+    <input type="text" name="last_initial" id="last_initial" required><br><br>
+    <label>Photo Url (optional):</label>
+    <input type="text" name="photo" id="photo"><br><br>
     <label>Facts:</label>
     <textarea name="facts" id="facts" form="new" placeholder="please use this format: [topic]information, [topic]information, [topic]information"></textarea><br><br>
     <input type="submit" class="fbutton" id="submit" name="submit" value="Create Contact">
@@ -27,10 +29,8 @@
   <% end %>
 
   <h2> Please note </h2>
-    <p> Facts must be entered in the following format:<br> <br> <u>[topic]information, [topic]information, [topic]information</u>
-    <br><br><u>Example:</u> [hometown]osaka, [favorite_food]pizza, and so on.</p>
+    <p> Facts must be entered in the following format:<br> <br> <strong>[topic]information, [topic]information, [topic]information</strong>
+    <br><br>Example:[hometown]osaka, [favorite_food]pizza, and so on.</p>
 
-    <p> Sometimes people have the same first & last name.<br>
-      To avoid duplicate contact names, feel free to use middle initial too.<br>
-    <u>Example:</u> Madeline EM</p>
+    <p>To avoid duplicate contact names, feel free to use middle initial if needed, such as <strong>"Madeline EM"</strong></p>
 </div>

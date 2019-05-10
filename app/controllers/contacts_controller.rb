@@ -53,7 +53,7 @@ class ContactsController < ApplicationController
     end
   end
 
-  patch "/contact/:id" do
+  patch "/contacts/:id" do
       @contact = Contact.find(params[:id])
       if logged_in? && (session[:user_id] == @contact.user_id)
         @contact.first_name = params[:first_name]

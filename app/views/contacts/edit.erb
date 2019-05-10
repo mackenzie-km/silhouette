@@ -3,8 +3,12 @@
 
   <form id="edit" action="<%= "/contacts/#{@contact.id}/" %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <input type="text" id="first_name" name="first_name"><br><br>
-    <input type="text" name="last_initial" id="last_initial"><br><br>
+    <label>First Name:</label>
+    <input type="text" id="first_name" name="first_name" required><br><br>
+    <label>Last Initial:</label>
+    <input type="text" name="last_initial" id="last_initial" required><br><br>
+    <label>Photo Url (optional):</label>
+    <input type="text" name="photo" id="photo"><br><br>
     <label>Facts:</label>
     <textarea name="facts" id="facts" form="edit" placeholder="please use this format: [topic]information, [topic]information, [topic]information"></textarea><br><br>
     <input type="submit" class="fbutton" id="submit" name="submit" value="Edit Contact">
@@ -15,6 +19,16 @@
 </div>
 
 <div class="right">
-  <h2>Fancypants way!</h2>
-  <h3>Explanation</h3>
+  <h2>Current Info</h2>
+    <% if @contact %>
+        <% if @contact.photo %>
+          <p><img class="profile tiny" src="<%=@contact.photo%>"></p>
+        <% else %>
+          <p><img class="profile tiny" src="<%= url('/images/default.png') %>"></p>
+        <% end %>
+      <p><%= "Full name: #{@contact.full_name}" %></p>
+      <% @contact.facts.each do |fact| %>
+        <p><%= "#{fact.topic.gsub("_", " ").capitalize}: #{fact.information.capitalize}" %></p>
+      <% end %>
+    <% end %>
 </div>
