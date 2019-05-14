@@ -51,24 +51,23 @@ class ContactsController < ApplicationController
 
   patch "/contacts/:id" do
       @contact = Contact.find(params[:id])
+      details = Fact.normalize(params[:facts])
+
       if right_user?(@contact)
         if params[:first_name] != "" then @contact.first_name = params[:first_name] end
         if params[:last_initial] != "" then @contact.last_initial = params[:last_initial] end
+        if params[:photo] != "" then @contact.photo = params[:photo] end 
 
-        details = Fact.normalize(params[:facts])
         details.each do |fact|
-          fact = Fact.find_by(:topic => fact[0], :contact_id => @contact.id)
-            if fact != nil
-              Fact.update(fact.id, :information => fact[1])
-              fact.save
-            else
-              fact_object = Fact.new(:topic => fact[0], :information => fact[1], :contact_id => @contact.id)
-              fact_object.save
-              @contact.facts << fact_object
-            end
+          found_fact = Fact.where(:topic => fact[0], :contact_id => @contact.id).first_or_create
+          found_fact.update(:information => fact[1])
+          if found_fact.save then @contact.facts << found_fact end
         end
+
+        @contact.save
         redirect to "/contacts/#{@contact.id}"
       else
+        flash[:message] = "Please follow proper syntax for updates."
         redirect to "/users/login"
       end
   end

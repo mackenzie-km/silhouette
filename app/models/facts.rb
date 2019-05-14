@@ -5,12 +5,12 @@ class Fact < ActiveRecord::Base
 
   def self.normalize(facts)
     details = []
-    each_fact = facts.split(",")
+    each_fact = facts.split("+")
     each_fact.each do |fact|
       chunk = [fact.slice!(/\[.{2,}\]/), fact]
       chunk[0].gsub!(/\]/, "")
       chunk[0].gsub!(/\[/, "")
-      chunk[0].downcase
+      chunk[0].downcase!
       if chunk[0].include?(" ")
         chunk[0].gsub!(" ", "_")
       end

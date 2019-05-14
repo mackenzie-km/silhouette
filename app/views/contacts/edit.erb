@@ -10,14 +10,9 @@
     <label>Photo Url (optional):</label>
     <input type="text" name="photo" id="photo"><br><br>
     <label>Facts:</label>
-    <textarea name="facts" id="facts" form="edit" placeholder="Please use this format: [topic]information, [topic]information, [topic]information"></textarea><br><br>
+    <textarea name="facts" id="facts" form="edit" placeholder="Please use this format: [topic]information + [topic]information + [topic]information"></textarea><br><br>
     <input type="submit" class="fbutton" id="submit" name="submit" value="Edit Contact">
   </form><br>
-
-  <form id="delete" action="<%= "/contacts/#{@contact.id}" %>" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" class="fbutton" id="submit" name="submit" value="Delete Contact">
-  </form>
 
 </div>
 
@@ -35,16 +30,20 @@
     </div>
   <% end %>
 
-  <h2>Current Info</h2>
+  <h2><%= "#{@contact.full_name}" %></h2>
     <% if @contact != nil %>
         <% if @contact.photo != nil && @contact.photo != "" %>
             <img class="tiny" src="<%=@contact.photo%>">
         <% else %>
             <img class="tiny" src="<%= url('/images/default.png') %>">
         <% end %>
-      <p><%= "Full name: #{@contact.full_name}" %></p>
       <% @contact.facts.each do |fact| %>
-        <p><%= "#{fact.topic.gsub("_", " ").capitalize}: #{fact.information.capitalize}" %></p>
+        <p><u><%= "#{fact.topic.gsub("_", " ").capitalize}:" %></u> <%="#{fact.information.capitalize}" %>
+        <a href="<%= "/facts/#{fact.id}/delete" %>"><img src="<%= url('/images/red_x.png') %>"></a></p>
       <% end %>
     <% end %>
+    <form id="delete" action="<%= "/contacts/#{@contact.id}" %>" method="POST">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" class="fbutton" id="submit" name="submit" value="Delete Contact">
+    </form>
 </div>
