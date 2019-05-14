@@ -17,19 +17,6 @@
 </div>
 
 <div class="right">
-  <% if flash.has?(:message) %>
-    <div class="messages">
-      <% if flash[:message].kind_of?(Array) %>
-        <% flash[:message].each do |message| %>
-        <b><%= message %></b><br>
-        <% end %>
-      <% else %>
-        <b><%= flash[:message] %></b>
-      <% end %>
-      <%= flash[:message] = nil %>
-    </div>
-  <% end %>
-
   <h2><%= "#{@contact.full_name}" %></h2>
     <% if @contact != nil %>
         <% if @contact.photo != nil && @contact.photo != "" %>
@@ -46,4 +33,16 @@
       <input id="hidden" type="hidden" name="_method" value="delete">
       <input type="submit" class="fbutton" id="submit" name="submit" value="Delete Contact">
     </form>
+  <% if flash.has?(:message) %>
+    <div class="messages">
+      <% if flash[:message].kind_of?(Array) %>
+        <% flash[:message].each do |message| %>
+        <b><%= message %></b><br>
+        <% end %>
+      <% else %>
+        <b><%= flash[:message] %></b>
+      <% end %>
+      <%= flash[:message] = nil %>
+    </div>
+  <% end %>
 </div>
