@@ -3,20 +3,19 @@ class Fact < ActiveRecord::Base
 
   def self.normalize(facts)
     details = []
+    binding.pry
     each_fact = facts.split("+")
-    if !!facts.scan(/\[[\w]+\]/i)
-      each_fact.each do |fact|
+    each_fact.each do |fact|
+      if fact.include?("[" && "]")
         chunk = [fact.slice!(/\[.{2,}\]/), fact]
         chunk[0].gsub!(/\]/, "")
         chunk[0].gsub!(/\[/, "")
         chunk[0].downcase!
-        if chunk[0].include?(" ")
-          chunk[0].gsub!(" ", "_")
-        end
+        chunk[0].gsub!(" ", "_") if chunk[0].include?(" ")
         key = chunk[0].strip
         value = chunk[1].strip
         details << [key, value]
-      end
+      end 
     end
     details
   end
