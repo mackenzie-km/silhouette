@@ -18,7 +18,7 @@ New features for this app are welcome.
 
 Please feel free to utilize the pull request or raise issue features on Github to bring new features/glitches to awareness.
 
-While contributing, plase abide by the code of conduct set forth in https://www.contributor-covenant.org/version/1/4/code-of-conduct
+While contributing, please abide by the code of conduct set forth in https://www.contributor-covenant.org/version/1/4/code-of-conduct
 
 ## Future Goals
 
