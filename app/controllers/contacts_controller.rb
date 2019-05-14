@@ -56,9 +56,9 @@ class ContactsController < ApplicationController
       details = Fact.normalize(params[:facts])
 
       if right_user?(@contact)
-        if params[:first_name] != "" then @contact.first_name = params[:first_name] end
-        if params[:last_initial] != "" then @contact.last_initial = params[:last_initial] end
-        if params[:photo] != "" then @contact.photo = params[:photo] end
+        @contact.first_name = params[:first_name] if params[:first_name] != ""
+        @contact.last_initial = params[:last_initial] if params[:last_initial] != ""
+        @contact.photo = params[:photo] if params[:photo] != ""
 
         details.each do |fact|
           found_fact = Fact.where(:topic => fact[0], :contact_id => @contact.id).first_or_create
