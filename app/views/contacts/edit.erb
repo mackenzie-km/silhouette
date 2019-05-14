@@ -33,9 +33,9 @@
   <h2><%= "#{@contact.full_name}" %></h2>
     <% if @contact != nil %>
         <% if @contact.photo != nil && @contact.photo != "" %>
-            <img class="tiny" src="<%=@contact.photo%>">
+            <p><img class="tiny" src="<%=@contact.photo%>"></p>
         <% else %>
-            <img class="tiny" src="<%= url('/images/default.png') %>">
+            <p><img class="tiny" src="<%= url('/images/default.png') %>"></p>
         <% end %>
       <% @contact.facts.each do |fact| %>
         <p><u><%= "#{fact.topic.gsub("_", " ").capitalize}:" %></u> <%="#{fact.information.capitalize}" %>

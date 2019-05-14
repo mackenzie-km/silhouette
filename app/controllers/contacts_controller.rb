@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
   get "/contacts" do
     if logged_in?
-      @contacts = Contact.order(first_name: :asc)
+      @contacts = Contact.where("user_id = ?", current_user.id)
       erb :'/contacts/index'
     else
       redirect to "/users/login"
@@ -19,10 +19,12 @@ class ContactsController < ApplicationController
 
   post "/contacts" do
     @contact = Contact.new(:first_name => params[:first_name].capitalize, :last_initial => params[:last_initial].capitalize, :user_id => session[:user_id], :photo => params[:photo])
+    details = Fact.normalize(params[:facts])
+
     if @contact.save
-      details = Fact.normalize(params[:facts])
       details.each do |fact|
         fact_object = Fact.new(:topic => fact[0], :information => fact[1], :contact_id => @contact.id)
+        fact_object.save
         @contact.facts << fact_object
       end
       redirect to "/contacts/#{@contact.id}"
@@ -56,7 +58,7 @@ class ContactsController < ApplicationController
       if right_user?(@contact)
         if params[:first_name] != "" then @contact.first_name = params[:first_name] end
         if params[:last_initial] != "" then @contact.last_initial = params[:last_initial] end
-        if params[:photo] != "" then @contact.photo = params[:photo] end 
+        if params[:photo] != "" then @contact.photo = params[:photo] end
 
         details.each do |fact|
           found_fact = Fact.where(:topic => fact[0], :contact_id => @contact.id).first_or_create
@@ -74,7 +76,7 @@ class ContactsController < ApplicationController
 
   delete "/contacts/:id" do
     @contact = Contact.find(params[:id])
-    if right_user?
+    if right_user?(@contact)
       @contact.delete
       redirect to "/contacts"
     else
