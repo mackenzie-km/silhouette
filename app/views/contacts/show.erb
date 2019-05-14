@@ -12,9 +12,9 @@
 <div class="right">
   <h2> Identify </h2>
     <% if @contact.photo != nil && @contact.photo != "" %>
-        <img class="profile" src="<%=@contact.photo%>">
+        <img class="profile" src="<%=@contact.photo%>"><br>
     <% else %>
-        <img class="profile" src="<%= url('/images/default.png') %>">
+        <img class="profile" src="<%= url('/images/default.png') %>"><br>
     <% end %>
   <p>Visit <a class="glow" href="/contacts">"Illuminate"</a> to view more contacts</p>
 </div>
