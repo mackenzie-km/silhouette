@@ -69,7 +69,6 @@ class ContactsController < ApplicationController
         @contact.save
         redirect to "/contacts/#{@contact.id}"
       else
-        flash[:message] = "Please follow proper syntax for updates."
         redirect to "/users/login"
       end
   end
