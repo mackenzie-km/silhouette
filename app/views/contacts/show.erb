@@ -1,9 +1,9 @@
 <div class="left">
   <h2> Dig Deep </h2>
   <% if @contact %>
-    <p><%= "Full name: #{@contact.full_name}" %></p>
+    <p><u><%= "Full name:" %></u> <%= "#{@contact.full_name}" %></p>
     <% @contact.facts.each do |fact| %>
-      <p><%= "#{fact.topic.gsub("_", " ").capitalize}: #{fact.information.capitalize}" %></p>
+      <p><u><%= "#{fact.topic.gsub("_", " ").capitalize}:" %></u> <%= "#{fact.information.capitalize}" %></p>
     <% end %>
     <a href="<%="/contacts/#{@contact.id}/edit" %>"> <button class="bigbutton">Edit Contact</button> </a>
   <% end %>
