@@ -76,7 +76,7 @@ class ContactsController < ApplicationController
   delete "/contacts/:id" do
     @contact = Contact.find(params[:id])
     if right_user?(@contact)
-      @contact.delete
+      @contact.destroy
       redirect to "/contacts"
     else
       redirect to "/users/login"
