@@ -15,13 +15,13 @@
     <h2>Please note...</h2>
     <h4> Please use "Signup" if you are a new user. </h4>
   <% if flash.has?(:message) %>
-    <div id="messages">
+    <div class="messages">
       <% if flash[:message].kind_of?(Array) %>
         <% flash[:message].each do |message| %>
-        <%= message %><br>
+          <b><%= message %>  </b><br>
         <% end %>
       <% else %>
-        <%= flash[:message] %>
+          <b><%= flash[:message] %></b>
       <% end %>
       <%= flash[:message] = nil %>
     </div>

@@ -21,13 +21,13 @@
   <u>Passwords</u> must be between 6-20 characters long.<br><br>
 
   <% if flash.has?(:message) %>
-    <div id="messages">
+    <div class="messages">
       <% if flash[:message].kind_of?(Array) %>
         <% flash[:message].each do |message| %>
-        <%= message %><br>
+          <b><%= message %> </b><br>
         <% end %>
       <% else %>
-        <%= flash[:message] %>
+          <b><%= flash[:message] %></b>
       <% end %>
       <%= flash[:message] = nil %>
     </div>

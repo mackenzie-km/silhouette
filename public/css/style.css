@@ -48,6 +48,12 @@ body, p, a {
   font-family: 'Raleway', sans-serif;
 }
 
+.right .messages {
+  display: inline-block;
+  color: #8B0000;
+  text-align: left;
+}
+
 /*////////////// Links //////////////*/
 
 a, a:visited, a:hover {
