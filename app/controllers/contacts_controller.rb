@@ -63,7 +63,7 @@ class ContactsController < ApplicationController
         details.each do |fact|
           found_fact = Fact.where(:topic => fact[0], :contact_id => @contact.id).first_or_create
           found_fact.update(:information => fact[1])
-          if found_fact.save then @contact.facts << found_fact end
+          @contact.facts << found_fact if found_fact.save
         end
 
         @contact.save

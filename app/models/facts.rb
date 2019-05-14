@@ -3,7 +3,6 @@ class Fact < ActiveRecord::Base
 
   def self.normalize(facts)
     details = []
-    binding.pry
     each_fact = facts.split("+")
     each_fact.each do |fact|
       if fact.include?("[" && "]")
@@ -15,7 +14,7 @@ class Fact < ActiveRecord::Base
         key = chunk[0].strip
         value = chunk[1].strip
         details << [key, value]
-      end 
+      end
     end
     details
   end
