@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       @user.save
       session[:user_id] = @user.id
       flash[:message] = "Please make your first contact profile."
-      erb :'/contacts/new'
+      redirect to '/contacts/new'
       # use redirect to change url and move to new contacts page
     else
       errors = @user.errors.messages
