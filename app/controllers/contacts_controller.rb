@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
   get "/contacts" do
     if logged_in?
-      @contacts = Contact.where("user_id = ?", current_user.id)
+      @contacts = current_user.contacts
       erb :'/contacts/index'
     else
       redirect to "/users/login"
@@ -23,9 +23,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       details.each do |fact|
-        fact_object = Fact.new(:topic => fact[0], :information => fact[1], :contact_id => @contact.id)
-        fact_object.save
-        @contact.facts << fact_object
+        @contact.facts.create(:topic => fact[0], :information => fact[1], :contact_id => @contact.id)
       end
       redirect to "/contacts/#{@contact.id}"
     else
@@ -37,52 +35,41 @@ class ContactsController < ApplicationController
 
   get "/contacts/:id" do
     @contact = Contact.find(params[:id])
-    if right_user?(@contact)
-      erb :'/contacts/show'
-    else
-      redirect to "/users/login"
-    end
+    redirect_if_wrong_user(@contact)
+    erb :'/contacts/show'
   end
 
   get "/contacts/:id/edit" do
     @contact = Contact.find(params[:id])
-    if right_user?(@contact)
-      erb :'/contacts/edit'
-    else
-      redirect to "/users/login"
-    end
+    redirect_if_wrong_user(@contact)
+    erb :'/contacts/edit'
   end
 
   patch "/contacts/:id" do
       @contact = Contact.find(params[:id])
       details = Fact.normalize(params[:facts])
 
-      if right_user?(@contact)
-        @contact.first_name = params[:first_name] if params[:first_name] != ""
-        @contact.last_initial = params[:last_initial] if params[:last_initial] != ""
-        @contact.photo = params[:photo] if params[:photo] != ""
+      redirect_if_wrong_user(@contact)
 
-        details.each do |fact|
-          found_fact = Fact.where(:topic => fact[0], :contact_id => @contact.id).first_or_create
-          found_fact.update(:information => fact[1])
-          @contact.facts << found_fact if found_fact.save
-        end
+      @contact.first_name = params[:first_name] if params[:first_name] != ""
+      @contact.last_initial = params[:last_initial] if params[:last_initial] != ""
+      @contact.photo = params[:photo] if params[:photo] != ""
 
-        @contact.save
-        redirect to "/contacts/#{@contact.id}"
-      else
-        redirect to "/users/login"
+      details.each do |fact|
+        found_fact = Fact.where(:topic => fact[0], :contact_id => @contact.id).first_or_create
+        found_fact.update(:information => fact[1])
+        @contact.facts << found_fact if found_fact.save
       end
+
+      @contact.save
+      redirect to "/contacts/#{@contact.id}"
   end
 
   delete "/contacts/:id" do
     @contact = Contact.find(params[:id])
-    if right_user?(@contact)
-      @contact.destroy
-      redirect to "/contacts"
-    else
-      redirect to "/users/login"
-    end
+    redirect_if_wrong_user(@contact)
+    @contact.destroy
+    redirect to "/contacts"
   end
 
 end

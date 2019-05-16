@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   get "/users/new" do
-    erb :'/users/new'
+    if logged_in?
+      redirect to '/contacts'
+    else
+      erb :'/users/new'
+    end
   end
 
   post "/users" do
@@ -11,6 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:message] = "Please make your first contact profile."
       erb :'/contacts/new'
+      # use redirect to change url and move to new contacts page
     else
       errors = @user.errors.messages
       flash[:message] = errors.collect {|key, value| "#{key.capitalize}: #{value.first}"}
@@ -19,7 +24,11 @@ class UsersController < ApplicationController
   end
 
   get "/users/login" do
-    erb :'/users/login'
+    if logged_in?
+      redirect to '/contacts'
+    else
+      erb :'/users/login'
+    end
   end
 
   post "/users/login" do

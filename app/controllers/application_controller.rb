@@ -26,5 +26,11 @@ class ApplicationController < Sinatra::Base
     def right_user?(contact)
       !!(logged_in? && (session[:user_id] == contact.user_id))
     end
+
+    def redirect_if_wrong_user(contact)
+      if !right_user?(contact)
+        redirect to "/users/login"
+      end
+    end
   end
 end
