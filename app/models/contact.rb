@@ -1,6 +1,8 @@
 class Contact < ActiveRecord::Base
-  validates :first_name, :format => { with: /[a-zA-Z0-9]{1,}/ }
-  validates :last_initial, :format => { with: /[a-zA-Z0-9]{1,3}/ }
+  validates :first_name, :format => { with: /[a-z0-9]/i }
+  validates :first_name, length: 2..10
+  validates :last_initial, :format => { with: /[a-z0-9]/i }
+  validates :last_initial, length: 1..3
   belongs_to :user
   has_many :facts
 
