@@ -1,20 +1,14 @@
 class ContactsController < ApplicationController
 
   get "/contacts" do
-    if logged_in?
-      @contacts = current_user.contacts
-      erb :'/contacts/index'
-    else
-      redirect to "/users/login"
-    end
+    redirect_if_logged_out
+    @contacts = current_user.contacts.order(:first_name)
+    erb :'/contacts/index'
   end
 
   get "/contacts/new" do
-    if logged_in?
-      erb :'/contacts/new'
-    else
-      redirect to "/users/login"
-    end
+    redirect_if_logged_out
+    erb :'/contacts/new'
   end
 
   post "/contacts" do
@@ -57,8 +51,8 @@ class ContactsController < ApplicationController
 
       details.each do |fact|
         found_fact = Fact.where(:topic => fact[0], :contact_id => @contact.id).first_or_create
-        found_fact.update(:information => fact[1])
-        @contact.facts << found_fact if found_fact.save
+        found_fact.update(:information => fact[1], :contact_id => @contact.id)
+        found_fact.save
       end
 
       @contact.save
