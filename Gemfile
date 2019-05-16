@@ -17,5 +17,5 @@ end
 
 group :production do
   gem 'pg'
-  gem "activerecord-postgresq1-adapter"
+  gem "activerecord-postgresql-adapter"
 end
