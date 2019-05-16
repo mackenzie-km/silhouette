@@ -29,6 +29,8 @@ class ContactsController < ApplicationController
       end
       redirect to "/contacts/#{@contact.id}"
     else
+      errors = @contact.errors.messages
+      flash[:message] = errors.collect {|key, value| "#{key.capitalize}: #{value.first}"}
       erb :'/contacts/new'
     end
   end
