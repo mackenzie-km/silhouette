@@ -1,7 +1,9 @@
 # Silhouette
 
 Silhouette is a post-conversation tool designed to help us remember facts about people.
+
 It allows users to quickly collect contact data using a simple syntax ex: [topic]information
+
 Later, this data can be quickly retrieved to help jog your memory.
 
 
