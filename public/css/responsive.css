@@ -1,14 +1,23 @@
-@media only screen and (min-width: 1340px) {
+@media only screen and (min-width: 1400px) {
   .wrapper {
-    max-width: 75%;
+    max-width: 78%;
     margin: 0 auto;
     height: 100%;
   }
 }
 
-@media only screen and (min-width: 1070px) and (max-width: 1340px) {
+@media only screen and (min-width: 1300px) and (max-width: 1400px) {
   .wrapper {
-    max-width: 95%;
+    max-width: 82%;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+}
+
+@media only screen and (min-width: 1188px) and (max-width: 1300px) {
+  .wrapper {
+    max-width: 85%;
     margin: 0 auto;
     height: 100%;
   }
@@ -16,7 +25,7 @@
 }
 
 
-@media only screen and (min-width: 964px) and (max-width: 1070px) {
+@media only screen and (min-width: 1071px) and (max-width: 1188px) {
   .nav {
     display: inline-block;
     background: rgba(255, 255, 51, 0.2);
@@ -29,13 +38,95 @@
   }
 
   .wrapper {
-    max-width: 95%;
+    max-width: 85%;
     margin: 0 auto;
     height: 100%;
   }
 }
 
-@media only screen and (min-width: 964px) and (max-width: 964px) {
+@media only screen and (min-width: 1050px) and (max-width: 1071px) {
+  .nav {
+    display: inline-block;
+    background: rgba(255, 255, 51, 0.2);
+    font-size: 0.9em;
+    letter-spacing: 1.05px;
+    padding: 5px 5px;
+    margin: 0.8px;
+    width: 8.3em;
+    border: 1px solid black;
+  }
+
+  .wrapper {
+    max-width: 85%;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  header {
+    margin: 40px 40px 32px 80px;
+    height: 4.7em;
+    width: 85%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  header img {
+    max-width: 100px;
+  }
+
+  h1 {
+    font-size: 4.5em;
+  }
+
+  .left, .right {
+    min-width: 45.2%;
+    max-width: 45.2%;
+    margin: auto;
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 975px) and (max-width: 1050px) {
+  .nav {
+    display: inline-block;
+    background: rgba(255, 255, 51, 0.2);
+    font-size: 0.9em;
+    letter-spacing: 1.05px;
+    padding: 5px 5px;
+    margin: 0.8px;
+    width: 8.3em;
+    border: 1px solid black;
+  }
+
+  .wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  header {
+    margin: 40px 40px 32px 80px;
+    height: 5.1em;
+    width: 85%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  header img {
+    max-width: 100px;
+  }
+
+  h1 {
+    font-size: 4.5em;
+  }
+
+  .left, .right {
+    min-width: 45.2%;
+    max-width: 45.2%;
+  }
+}
+
+@media only screen and (max-width: 975px) {
   .nav {
     display: inline-block;
     background: rgba(255, 255, 51, 0.2);
