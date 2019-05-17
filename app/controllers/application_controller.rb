@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
+  set :static, true 
   configure do
     set :views, 'app/views'
     enable :sessions
