@@ -1,11 +1,11 @@
 /*////////////// Header Layout //////////////*/
 
 header {
-  margin: 25px 0 40px 0;
-  height: 5.1em;
-  width: 100%;
-  text-align: center;
-  display: inline-block;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 10px auto 0 auto;
 }
 
 header img {
@@ -14,11 +14,11 @@ header img {
 }
 
 nav {
-  width: 100%;
-  display: inline-block;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin: 0px auto;
 }
 
 
@@ -154,38 +154,44 @@ form {
 }
 
 .wrapper {
-  max-width: 70%;
-  margin: 0 auto;
-  height: 100%;
-}
-
-.container {
-  height: 100%;
+  display: grid;
+  grid-template-columns: 2% 48% 48% 2%;
+  grid-template-rows: 20% 8% auto 12%;
+  padding: 10px 0;
+  grid-gap: 0 10px;
 }
 
 .one {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
-  margin: 0 2px 0 4px;
-  padding: 10px;
-  min-width: 99%;
-  max-width: 99%;
-  min-height: 45%;
-  display: inline-block;
-  vertical-align: top;
   text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  padding: 20px 30px;
 }
 
-.left, .right {
+.left {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
-  padding: 10px;
-  min-width: 49.2%;
-  max-width: 49.2%;
-  min-height: 45%;
-  display: inline-block;
-  vertical-align: top;
   text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  padding: 20px 30px;
+}
+
+.right {
+ background: rgba(255, 255, 255, 0.2);
+ border: 1px solid black;
+ text-align: center;
+ grid-column-start: 3;
+ grid-column-end: 4;
+ grid-row-start: 3;
+ grid-row-end: 4;
+ padding: 20px 30px;
 }
 
 .tiles {
@@ -196,18 +202,6 @@ form {
   min-width: 190px;
   max-width: 190px;
   background: rgba(255, 255, 51, 0.1);
-}
-
-.left {
-  margin: 0 2px 0 4px;
-}
-
-.right {
-  margin: 0 3px 0 1px;
-}
-
-.pad {
-  padding: 0 20px 0 20px;
 }
 
 /*////////////// Images //////////////*/
