@@ -159,7 +159,7 @@ form {
   height: 100%;
   display: grid;
   grid-template-columns: 2% 48% 48% 2%;
-  grid-template-rows: 20% 8% auto 12%;
+  grid-template-rows: 140px 50px auto 100px;
   padding: 10px 0;
   grid-gap: 0 10px;
 }
