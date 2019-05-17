@@ -8,7 +8,7 @@ test:
 
 production:
   adapter: postgresql
-  database: silhouettes
-  username: username
-  password: password
-  host: localhost 
+  database: silhouette
+  username: Mackenzie
+  password: 4d4mpwn530A
+  host: localhost
