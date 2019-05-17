@@ -10,12 +10,8 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'rack-flash3'
+gem 'pg'
 
 group :development do
   gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-  gem "activerecord-postgresql-adapter"
 end
