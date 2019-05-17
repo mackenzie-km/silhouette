@@ -8,7 +8,7 @@ test:
 
 production:
   adapter: postgresql
-  database: silhouette
-  username: Mackenzie
-  password: 4d4mpwn530A
+  database: silhouettes
+  username: heroku
+  password: sublime_connection9
   host: localhost
