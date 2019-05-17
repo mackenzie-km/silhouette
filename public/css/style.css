@@ -154,6 +154,9 @@ form {
 }
 
 .wrapper {
+  max-width: 85%;
+  margin: 0 auto;
+  height: 100%;
   display: grid;
   grid-template-columns: 2% 48% 48% 2%;
   grid-template-rows: 20% 8% auto 12%;
