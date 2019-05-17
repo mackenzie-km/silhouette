@@ -1,0 +1,15 @@
+@media only screen and (min-width: 1270px) and (max-width: 1436px) {
+  .wrapper {
+    max-width: 85%;
+    margin: 0 auto;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1270px) {
+  .wrapper {
+    max-width: 95%;
+    margin: 0 auto;
+    height: 100%;
+  }
+}
