@@ -1,15 +1,59 @@
-@media only screen and (min-width: 1270px) and (max-width: 1436px) {
+@media only screen and (min-width: 1340px) {
   .wrapper {
-    max-width: 85%;
+    max-width: 75%;
     margin: 0 auto;
     height: 100%;
   }
 }
 
-@media only screen and (min-width: 1000px) and (max-width: 1270px) {
+@media only screen and (min-width: 1070px) and (max-width: 1340px) {
   .wrapper {
     max-width: 95%;
     margin: 0 auto;
     height: 100%;
+  }
+
+}
+
+
+@media only screen and (min-width: 964px) and (max-width: 1070px) {
+  .nav {
+    display: inline-block;
+    background: rgba(255, 255, 51, 0.2);
+    font-size: 1em;
+    letter-spacing: 1.25px;
+    padding: 6px 6px;
+    margin: 1px;
+    width: 9em;
+    border: 1px solid black;
+  }
+
+  .wrapper {
+    max-width: 95%;
+    margin: 0 auto;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 964px) and (max-width: 964px) {
+  .nav {
+    display: inline-block;
+    background: rgba(255, 255, 51, 0.2);
+    font-size: 1em;
+    letter-spacing: 1.25px;
+    padding: 6px 6px;
+    margin: 1px;
+    width: 9em;
+    border: 1px solid black;
+  }
+
+  .nav {
+    max-width: 75%;
+    margin: 0 auto
+  }
+
+  .wrapper {
+    max-width: 95%;
+    margin: 0 auto
   }
 }
