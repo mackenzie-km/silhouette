@@ -118,6 +118,11 @@ input[type=text] {
   height: 1.75em;
 }
 
+input[id=password] {
+  border: 1px solid black;
+  height: 1.75em;
+}
+
 textarea {
   border: 1px solid black;
   height: 5em;
