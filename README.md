@@ -8,7 +8,10 @@ Later, this data can be quickly retrieved to help jog your memory.
 
 
 ## Installation & usage
-Currently, this app is in the development phase. To use:
+To visit the live app, please visit:
+https://silhouettes.herokuapp.com/
+
+To develop a new feature, please:
 
 1. Clone this repository
 2. Use $ cd <download directory name here>/silhouette to enter into this directory
