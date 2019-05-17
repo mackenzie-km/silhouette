@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
 
   configure do
     set :root, File.dirname(__FILE__)
-    set :public_folder, Proc.new { File.join(root, "static") }
+    set :public_folder, Proc.new { File.join(root, "public") }
     set :views, 'app/views'
     enable :sessions
     use Rack::Flash
