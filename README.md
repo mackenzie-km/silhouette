@@ -25,7 +25,6 @@ While contributing, please abide by the code of conduct set forth in https://www
 ## Future Goals
 
 1. Upgrade session key security
-2. Responsive layout
 
 ## License
 This app is available as open source under the terms of the MIT License https://opensource.org/licenses/MIT
