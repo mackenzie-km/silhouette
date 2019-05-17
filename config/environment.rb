@@ -10,7 +10,7 @@ configure :development do
 end
 
 configure :production do
-  db = URI.parse(ENV['postgresql-curved-74091'] || 'postgres://localhost/mydb')
+  db = URI.parse(ENV['postgresql-curved-74091'] || 'postgres://localhost/silhouettes')
 
 ActiveRecord::Base.establish_connection(
   :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
