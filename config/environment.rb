@@ -3,8 +3,6 @@ ENV['SINATRA_ENV'] ||= "development"
 require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
-set :public_folder, File.join(APP_ROOT, "public")
-
 require_all 'app'
 
 configure :development do
