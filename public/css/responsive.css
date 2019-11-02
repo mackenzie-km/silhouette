@@ -15,7 +15,7 @@
     background: rgba(255, 255, 51, 0.2);
     font-size: 1em;
     letter-spacing: 1.5px;
-    padding: 7px 7px;
+    padding: 5px 5px;
     margin: 1px;
     width: 10em;
     border: 1px solid black;
@@ -25,10 +25,6 @@
     display: inline;
     vertical-align: middle;
     max-width: 110px;
-  }
-
-  header {
-    margin: 20 auto;
   }
 
   h1 {
@@ -45,7 +41,7 @@
     margin: 0 auto;
     height: 100%;
     display: grid;
-    grid-template-columns: 1% 48% 48% 3%;
+    grid-template-columns: 2% 48% 48% 2%;
     grid-template-rows: 115px 42px auto 100px;
   }
 
@@ -54,7 +50,7 @@
     background: rgba(255, 255, 51, 0.2);
     font-size: .9em;
     letter-spacing: 1.2px;
-    padding: 6.5px 6.5px;
+    padding: 4.5px 4.5px;
     margin: .9px;
     width: 8.8em;
     border: 1px solid black;
@@ -64,10 +60,6 @@
     display: inline;
     vertical-align: middle;
     max-width: 100px;
-  }
-
-  header {
-    margin: 20 auto;
   }
 
   h1 {
@@ -117,11 +109,6 @@
 
   header {
     height: 4em;
-    text-align: center;
-  }
-
-  nav {
-    margin: 0 auto;
     text-align: center;
   }
 
